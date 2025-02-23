@@ -4,7 +4,7 @@ int main(){
   int secondNumber;
   char operation;
   double result = 0;
-  printf("First number \( + | - | * / \) Then second number : ");
+  printf("First number ( + | - | * / ) Then second number : ");
   scanf("%d %c %d", &firstNumber, &operation, &secondNumber);
   printf("%d%c%d = ", firstNumber, operation, secondNumber);
   switch (operation) {
