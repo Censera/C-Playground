@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-int toNumber(char c){
-    switch (c)
+int toNumber(char ch){
+    switch (ch)
     {
     case 'R':
     case 'r':
@@ -26,7 +26,7 @@ int toNumber(char c){
 int main () {
     srand(time(NULL));
     int Number = 3;
-    int randp = rand() % Number;
+    int computer = (rand() % Number) + 1;
     char player;
 
     printf("[R]ock, [P]aper, [S]cissors :\n"); 
@@ -39,17 +39,17 @@ int main () {
         return 1;
     }
 
-    if (player == randp) {
-        printf("Draw!");
+    if (player == computer) {
+        printf("Tie!");
 
-    } else if ( ( player == 1 && randp == 3 ) ||
-                ( player == 3 && randp == 2 ) ||
-                ( player == 2 && randp == 1 )
+    } else if ( ( player == 1 && computer == 3 ) ||
+                ( player == 3 && computer == 2 ) ||
+                ( player == 2 && computer == 1 )
               ) {
-        printf("You won!");
+        printf("You Won!");
 
     } else {
-            printf("You lose!");
+            printf("You Lose!");
     }
 
     return 0;
