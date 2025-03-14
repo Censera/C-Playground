@@ -16,7 +16,7 @@ int message () {
 int check_time (int from, int to, int time_hour) {
         if (time_hour >= from && time_hour <= to) {
                 message();
-                //shut_down();
+                shut_down();
         }
         return 0;
 }
