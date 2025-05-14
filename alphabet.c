@@ -19,23 +19,23 @@ int main() {
 
     while (1)
         {
+            printf("[%d] Not '%c',\t", attempts, getLetter);
+            scanf("\n%c", &getLetter);
+            getLetter = toupper(getLetter);
+            
             if ( getLetter == winLetter )
             {
-                printf("You won with %d attempts and the winning letter is %c", attempts, winLetter);
+                printf("You won with %d attempts, and the winning letter is %c", attempts, winLetter);
                 break;
             }
-            if ( attempts == 0 )
+
+            --attempts
+            
+            if ( 0 == attempts )
             {
                 printf("You lost, it's %c", winLetter);
                 break;
             }
-            if (getLetter!=winLetter) {
-            printf("[%d] Not '%c',\t", (  ), getLetter);
-            scanf("\n%c", &getLetter);
-            getLetter = toupper(getLetter);
-
-            --attempts;
-            }
-    }
+        }
     return 0;
 }
