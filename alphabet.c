@@ -10,27 +10,32 @@ int main() {
     int stringLength = strlen(alphabet);
     int randvalue = rand() % stringLength;
     char winLetter = alphabet[randvalue];
-    int attempts = 1;
+    int attempts = stringLength; //26
     srand(time(NULL));
 
     printf("- Guess a letter : ", winLetter);
     scanf("%c", &getLetter);
     getLetter = toupper(getLetter);
 
-    while (attempts < stringLength) { 
-        if (getLetter!=winLetter) {
-           printf("[%d] Not '%c',\t", attempts, getLetter);
-           scanf("\n%c", &getLetter);
-           getLetter = toupper(getLetter);
+    while (1)
+        {
+            if ( getLetter == winLetter )
+            {
+                printf("You won with %d attempts and the winning letter is %c", attempts, winLetter);
+                break;
+            }
+            if ( attempts == 0 )
+            {
+                printf("You lost, it's %c", winLetter);
+                break;
+            }
+            if (getLetter!=winLetter) {
+            printf("[%d] Not '%c',\t", (  ), getLetter);
+            scanf("\n%c", &getLetter);
+            getLetter = toupper(getLetter);
 
-          ++attempts;
-        } else if(attempts>26) {
-            printf("You lost, it's %c", winLetter);
-            break;
-        } else {
-            printf("You won with %d attempts", attempts);
-            break;
-        }
+            --attempts;
+            }
     }
     return 0;
 }
