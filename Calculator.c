@@ -31,7 +31,7 @@ int main(void)
       
       default:
         printf("\"%c\" is an unsupported operation!\n", operation); 
-      return -2;
+        return -2;
   }
     printf("%g",result);
 

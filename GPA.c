@@ -1,48 +1,62 @@
 #include <stdio.h>
-float getGradepoint(char gradeLetter){
-      switch(gradeLetter){
-        case 'A':
+#include <ctype.h>
+
+float toPoints(char gradeLetter)
+{
+      switch(tolower(gradeLetter))
+      {
         case 'a':
           return 4.0;
-        case 'B':
         case 'b':
           return 3.0;
-        case 'C':
         case 'c':
           return 2.0;
-        case 'D':
         case 'd':
           return 1.0;
-        case 'F':
         case 'f':
           return 0.0;
         default:
-          return -1.8;
+          return -1.0;
       }
 }
-int main() {
-  int classNum;
-  char letterGrade;
-  double classCredit, totalGrades, totalCredits, result=0;
+int main(void)
+{
+  int number_of_classes = 0;
+  char grade;
+  double class_credit = 0;
+  double total_grades = 0;
+  double total_credits = 0;
+  double result = 0;
+  int i; 
+
   printf("Enter number of classes: ");
-  scanf("%d", &classNum);
-      for (int i = 1;i<=classNum;++i) {
-             printf("[%d] Credit: ",i);
-             scanf("\n%lf",&classCredit);
+  scanf("%d", &number_of_classes);
 
-             if (classCredit==0){
-               printf("changed to 1.\n");
-               classCredit=1;
-             }
+  i = 0;
+  while (i < number_of_classes)
+  {
+    printf("Class number [%d] credit: ", i);
+    scanf(" %lf", &class_credit);
 
-             printf("[%d] Letter Grade: ",i);
-             scanf("\n%c",&letterGrade);
+    if (class_credit == 0)
+    {
+      printf("Credit number can't be 0, changing it to 1.\n");
+      class_credit = 1;
+    }
 
-             totalGrades += classCredit*getGradepoint(letterGrade);
-             totalCredits += classCredit;
+    printf("Class number [%d] grade (e.g: C): ", i);
+    scanf(" %c", &grade);
 
-             result = totalGrades/totalCredits;
-        }
-      printf("Number of classes: %d \nTotal grade points/Total credits: %.2lf / %.2lf \n\t→ %.2lf GPA", classNum, totalGrades, totalCredits, result);
+    total_grades += class_credit * toPoints(grade);
+    total_credits += class_credit;
+
+    i++;
+    }
+    
+    result = total_grades / total_credits;
+
+    printf("Number of classes: %d \nTotal grade "
+      "points/Total credits: %.2lf / %.2lf \n\t→ %.2lf GPA",
+      number_of_classes, total_grades, total_credits, result);
  return 0;
 }
