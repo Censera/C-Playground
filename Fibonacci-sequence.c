@@ -1,24 +1,26 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int main() {    
-    unsigned short int first, second, following, count;
-    first = 0;
-    second = count = 1;
-    following = second;
+int main(void)
+{    
+    unsigned int first = 0;
+    unsigned int second = 1; 
+    unsigned int following = 1;
+    int count = 1;
 
-    while(count<=20) {
-        printf("%hu + %hu",first, second);
-        printf(" = %hu\r",following);
+    while (count <= 20)
+    {
+        following = first + second;
+
+        printf("%u + %u = %u\r", first, second, following);
+        fflush(stdout);
 
         first = second;
         second = following;
-        following = first + second;
-        fflush(stdout);
-        sleep(1);
 
-        ++count;
+        count++;
+        sleep(1);
     }
 
-      return 0; //returns 0
+    return 0; // returns 0
 }
