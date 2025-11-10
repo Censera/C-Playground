@@ -32,7 +32,7 @@ int main(void)
             }
 
             attempts--;
-            
+
             if (attempts == 0)
             {
                 printf("You lost, it's %c", winning_letter);
