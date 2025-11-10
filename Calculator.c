@@ -1,34 +1,39 @@
 #include <stdio.h>
-int main(){
-  int firstNumber;
-  int secondNumber;
+
+int main ()
+{
+  int num1;
+  int num2;
   char operation;
   double result = 0;
-  printf("First number ( + | - | * / ) Then second number : ");
-  scanf("%d %c %d", &firstNumber, &operation, &secondNumber);
-  printf("%d%c%d = ", firstNumber, operation, secondNumber);
-  switch (operation) {
-      case '+':
-        result = firstNumber+secondNumber;
-        break;
-      case '-':
-        result = firstNumber-secondNumber;
-        break;
-      case '/':
-        if (secondNumber!=0){
-        result = (double)firstNumber/secondNumber;
-        }
-        else { printf("Dividing by Zero is undefined.");
-        }
-        break;
-        return 1;
-      case '*':
-        result = firstNumber*secondNumber;
-        break;
+
+  printf("Enter: number opration number (e.g: 2 + 3): ");
+
+  scanf("%d %c %d", &num1, &operation, &numb2);
+
+  printf("%d%c%d = ", num1, operation, numb2);
+  
+  switch (operation)
+  {
+      case '+': result = num1 + numb2;  break;
+      case '-': result = num1 - numb2;  break;
+      case '*': result = num1 * numb2;  break;
+      case '/': if (numb2!=0)
+      {
+        result = (double)num1 / numb2;
+      }
+      else
+      {
+        printf("Dividing by Zero is undefined.");
+        return -1;
+      }
+      break;
+      
       default:
-        printf("Syntax error:'%c' is an unsupported operation!\n", operation);
-        return 2;
+        printf("\"%c\" is an unsupported operation!\n", operation); 
+      return -2;
   }
-  printf("%g",result);
-return 0;
+    printf("%g",result);
+
+  return 0;
 }
