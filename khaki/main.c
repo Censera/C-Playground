@@ -21,13 +21,6 @@ int main(int argc, char **argv)
       perror("mkdir");
       return -1;
     }
-
-    // Open the project (Doesn't work)
-    //if (chdir(project_name) != 0)
-    //{
-    //  perror("chdir");
-    //  return -1;
-    //}
     
     char main_path[512];
     snprintf(main_path, sizeof(main_path), "%s/main.c", project_name);
